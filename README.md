@@ -1,5 +1,5 @@
 # Node.js Raspbery Pi Server
-###### A Node.js website that carrys out Python scripts on a Raspberry Pi on specific GET requests
+###### A Node.js website that carries out Python scripts on a Raspberry Pi on specific GET requests
 ###### Version 0.3 (STILL IN DEVELOPMENT)
 ---
 
