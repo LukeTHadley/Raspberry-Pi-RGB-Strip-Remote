@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
  */
 app.get('/led-on', (req, res) => {
  var dataToSend;
- const python = spawn('python', ['./scripts/python/led-on.py']);
+ const python = spawn('python', ['./public/scripts/python/led-on.py']);
  python.stdout.on('data', function (data) {
   dataToSend = data.toString();
  });
@@ -46,7 +46,7 @@ app.get('/led-on', (req, res) => {
  */
 app.get('/led-off', (req, res) => {
     var dataToSend;
-    const python = spawn('python', ['./scripts/python/led-off.py']);
+    const python = spawn('python', ['./public/scripts/python/led-off.py']);
     python.stdout.on('data', function (data) {
      dataToSend = data.toString();
     });
