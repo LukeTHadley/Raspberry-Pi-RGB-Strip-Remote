@@ -1,6 +1,6 @@
 # Node.js Raspbery Pi Server
 ###### A Node.js website that carries out Python scripts on a Raspberry Pi on specific GET requests
-###### Version 0.3 (STILL IN DEVELOPMENT)
+###### Version 0.4 (STILL IN DEVELOPMENT)
 ---
 
 ## About this Project
@@ -79,9 +79,9 @@ Once it has fully started, unless there are any errors, it should output:
 
 In your navigate, connect to `YOURDEVICESIP:3000/`
 
-The page you should should be a very simple page just saying `Home`.
+The page you should see should be the following. A simple page with a checkbox input that can be clicked to turn on/off the led.
 
-![Index Page](https://i.imgur.com/FiOwXqb.png "index page")
+![Index Page](https://i.imgur.com/s737XPt.png "index page")
 
 As well as an output on the console saying:
 
@@ -89,9 +89,12 @@ As well as an output on the console saying:
 
 There are two other 'pages' that you can navigate to.
 
-`YOURDEVICESIP:3000/led-on` and `YOURDEVICESIP:3000/led-off` which, oviously, turn your LED on/off
+`YOURDEVICESIP:3000/ledon` and `YOURDEVICESIP:3000/ledoff` which, oviously, turn your LED on/off.
+The URL route has a `toLowerCaser()` method called on it before it is switched so you can make a caps mistake when you type and the functions will still be called either way.
 
 
 ## To Do
-* Abstract `app.get()` functions to seperate files.
-* Create a homepage (using some node framework) that can have buttons and information on it that interact with the pi GPIO pins and functions created for it.
+* Make on/off switch run the scripts to turn the led on/off
+* Make a function to queary if the LED is on or off
+
+
