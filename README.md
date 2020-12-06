@@ -1,13 +1,13 @@
 # Node.js Raspbery Pi Server
 ###### A Node.js website that carries out Python scripts on a Raspberry Pi on specific GET requests
-###### Version 0.4 (STILL IN DEVELOPMENT)
+###### Version 1.0
 ---
 
 ## About this Project
 
 This project is a test of running a Python script using Node.js to trigger it.
 
-The python files will turn on/off an LED connected to a Raspberry Pi on a breadboard (See the wiring diagram in 'Setting up the breadboard')
+The python files will turn on/off an LED connected to a Raspberry Pi on a breadboard (See the wiring diagram in 'Setting up the breadboard') when given the command to do so.
 
 
 ## How to use it
@@ -89,12 +89,13 @@ As well as an output on the console saying:
 
 There are two other 'pages' that you can navigate to.
 
-`YOURDEVICESIP:3000/ledon` and `YOURDEVICESIP:3000/ledoff` which, oviously, turn your LED on/off.
-The URL route has a `toLowerCaser()` method called on it before it is switched so you can make a caps mistake when you type and the functions will still be called either way.
+`YOURDEVICESIP:3000/ledOn` and `YOURDEVICESIP:3000/ledOff` which, oviously, turn your LED on/off.
+
+When you press the switch to turn the LED on/off, the console of the Node service will also output what python script is running.
 
 
 ## To Do
-* Make on/off switch run the scripts to turn the led on/off
-* Make a function to queary if the LED is on or off
 
-
+* Set a function to run on startup of the node service to either check the current status of the GPIO pins or straight turn the LED off, to sanity check what the status of the LED, and what state the switch, should be in. (former would be better)
+* Make a proper console (time/date and everything)
+* Make the on/off pages respond with a 200 (ok) or 503 (unavailable) html service error that can be parsed and used if needed by the HTML.

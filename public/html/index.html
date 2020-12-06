@@ -10,9 +10,23 @@
 
 <body>
 
+    <script>
+        function clickEvent() {
+            var xhttp = new XMLHttpRequest();
+            var isChecked=document.getElementById("switch").checked;
+            if(isChecked){
+                xhttp.open("GET", "/ledOn", true);
+            }
+            else{
+                xhttp.open("GET", "/ledOff", true);
+            }
+            xhttp.send();        
+        }
+    </script>
+
     <div class="header">
 
-    <p id="title">Raspberry Pi LED Light Controller</p>
+        <p id="title">Raspberry Pi LED Light Controller</p>
 
     </div>
 
@@ -21,8 +35,8 @@
 
     <div class="inner-block">
         <div class="onoffswitch">
-            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" checked>
-            <label class="onoffswitch-label" for="myonoffswitch"></label>
+            <input onclick="clickEvent()" type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch" tabindex="0">
+            <label class="onoffswitch-label" for="switch"></label>
         </div>
         <div>Turn on/off the LED</div>
     </div>
