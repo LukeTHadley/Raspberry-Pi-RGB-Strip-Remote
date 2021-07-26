@@ -2,87 +2,61 @@
 <html lang="en">
 
 <head>
-
     <title>Raspberry Pi RGB Strip Controller</title>
     <link rel="stylesheet" href="../stylesheets/styles.css">
-
 </head>
 
 <body>
-
     <script>
         function clickEvent(type) {
             var xhttp = new XMLHttpRequest();
-
-
             console.log(type);
-
             xhttp.open("GET", type, true);
-
             xhttp.send();        
         }
     </script>
 
     <div class="header">
-
         <p id="title">Raspberry Pi LED Light Controller</p>
-
     </div>
-
 
     <div class="block">
         <div class="block-title">Fading Lights</div>
-        <button style="background-color: gray;" onclick="clickEvent('/fading')">X</button>
+        <div class="spacer"></div>
+        <button style="background-color: gray;" onclick="clickEvent('/fading')">Start Fade</button>
     </div>
 
     <div class="block">
-        <div class="block-title">Red</div>
-        <button style="background-color: red;" onclick="clickEvent('/red')">X</button>
+        <div class="block-title">Solid Colours</div>
+        <div class="spacer"></div>
+        <button style="background-color: red; border-color: rgb(177, 1, 1);" onclick="clickEvent('/red')">Red</button>
+        <div class="spacer"></div>
+        <button style="background-color: lightskyblue; border-color: rgb(105, 161, 196)" onclick="clickEvent('/blue')">Blue</button>
+        <div class="spacer"></div>
+        <button style="background-color: greenyellow; border-color: rgb(134, 199, 37)" onclick="clickEvent('/green')">Green</button>
+        <div class="spacer"></div>
+        <button id="yellow" style="color: grey; background-color: yellow; border-color: rgb(209, 209, 0)" onclick="clickEvent('/yellow')">Yellow</button>
+        <div class="spacer"></div>
+        <button id="cyan" style="background-color: cyan; border-color: rgb(1, 219, 219)" onclick="clickEvent('/cyan')">Cyan</button>
+        <div class="spacer"></div>
+        <button id="magenta" style="background-color: magenta; border-color: rgb(192, 0, 192)" onclick="clickEvent('/magenta')">Magenta</button>
+        <div class="spacer"></div>
+        <button id="white" style="color: grey; background-color: white; border-color: rgb(219, 219, 219)" onclick="clickEvent('/white')">White</button>
     </div>
 
     <div class="block">
-        <div class="block-title">Blue</div>
-        <button style="background-color: lightskyblue;" onclick="clickEvent('/blue')">X</button>
-    </div>
-
-    <div class="block">
-        <div class="block-title">Green</div>
-        <button style="background-color: greenyellow;" onclick="clickEvent('/green')">X</button>
-    </div>
-
-    <div class="block">
-        <div class="block-title">Yellow</div>
-        <button id="yellow" style="background-color: yellow;" onclick="clickEvent('/yellow')">X</button>
-    </div>
-
-    <div class="block">
-        <div class="block-title">Cyan</div>
-        <button id="cyan" style="background-color: cyan;" onclick="clickEvent('/cyan')">X</button>
-    </div>
-
-    <div class="block">
-        <div class="block-title">Magenta</div>
-        <button id="magenta" style="background-color: magenta;" onclick="clickEvent('/magenta')">X</button>
-    </div>
-
-    <div class="block">
-        <div class="block-title">All Off</div>
-        <button id="allOff" style="background-color: white;" onclick="clickEvent('/allOff')">X</button>
+        <div class="block-title">Lights Off</div>
+        <div class="spacer"></div>
+        <button id="allOff" style="background-color: grey; border-color: rgb(90, 90, 90);" onclick="clickEvent('/allOff')">All Off</button>
     </div>
     
-
-
     <div class="footer">
         <p class="footer-text-left">By Luke T. Hadley</p>
         <p class="footer-text-right">
-            <a href="https://github.com/LukeTHadley/Raspberry-Pi-LED-Remote">Link to GitHub project</a>
+            <a href="https://github.com/LukeTHadley/Raspberry-Pi-RGB-Strip-Remote">Link to GitHub project</a>
         </p>
     </div>
 
     </body>
 
 </html>
-
-
-
-
