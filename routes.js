@@ -9,8 +9,16 @@
  */
 
 const {spawn} = require('child_process'); //Needed to run Python scripts
-const pythonLEDOnLocation = './public/scripts/python/led-on.py';
-const pythonLEDOffLocation = './public/scripts/python/led-off.py';
+
+const fading = './public/scripts/python/fading.py';
+const red = './public/scripts/python/red.py';
+const blue = './public/scripts/python/blue.py';
+const green = './public/scripts/python/green.py';
+const yellow = './public/scripts/python/yellow.py';
+const cyan = './public/scripts/python/cyan.py';
+const magenta = './public/scripts/python/magenta.py';
+const allOff = './public/scripts/python/allOff.py';
+
 const stylesheet = './public/stylesheets/styles.css';
 const homepage = './public/html/index.html';
 
@@ -32,18 +40,60 @@ module.exports = {
                 response.writeHead(200, {'Content-Type': 'text/css'});
                 renderHTML(stylesheet, response);
                 break;
-            case '/ledon': //When we get a 'ledOn' route
-                console.log('Running Python script led-on.py');
+            case '/fading': //When we get a 'fading' route
+                console.log('Running Python script fading.py');
                 response.writeHead(200, {'Content-Type': 'text/html'});
-                spawn('python', [pythonLEDOnLocation]);
-                response.write("LED ON");
+                spawn('python', [fading]);
+                response.write("Start RGB Strip Fadeing");
                 response.end();
                 break;
-            case '/ledoff': //When we get a 'ledoff' route
-                console.log('Running Python script led-off.py');
+            case '/red': //When we get a 'red' route
+                console.log('Running Python script red.py');
                 response.writeHead(200, {'Content-Type': 'text/html'});
-                spawn('python', [pythonLEDOffLocation]);
-                response.write("LED OFF");
+                spawn('python', [red]);
+                response.write("Start solid red colour");
+                response.end();
+                break;
+            case '/blue': //When we get a 'blue' route
+                console.log('Running Python script blue.py');
+                response.writeHead(200, {'Content-Type': 'text/html'});
+                spawn('python', [blue]);
+                response.write("Start solid blue colour");
+                response.end();
+                break;
+            case '/green': //When we get a 'green' route
+                console.log('Running Python script green.py');
+                response.writeHead(200, {'Content-Type': 'text/html'});
+                spawn('python', [green]);
+                response.write("Start solid green colour");
+                response.end();
+                break;
+            case '/yellow': //When we get a 'yellow' route
+                console.log('Running Python script yellow.py');
+                response.writeHead(200, {'Content-Type': 'text/html'});
+                spawn('python', [yellow]);
+                response.write("Start solid yellow colour");
+                response.end();
+                break;
+            case '/cyan': //When we get a 'cyan' route
+                console.log('Running Python script cyan.py');
+                response.writeHead(200, {'Content-Type': 'text/html'});
+                spawn('python', [cyan]);
+                response.write("Start solid cyan colour");
+                response.end();
+                break;
+            case '/magenta': //When we get a 'magenta' route
+                console.log('Running Python script magenta.py');
+                response.writeHead(200, {'Content-Type': 'text/html'});
+                spawn('python', [magenta]);
+                response.write("Start solid magenta colour");
+                response.end();
+                break;
+            case '/aloff': //When we get a 'allOff' route
+                console.log('Running Python script allOff.py');
+                response.writeHead(200, {'Content-Type': 'text/html'});
+                spawn('python', [allOff]);
+                response.write("Turn off all colours");
                 response.end();
                 break;
             default: //Some request we don't know? Send back a 404 error and a message.

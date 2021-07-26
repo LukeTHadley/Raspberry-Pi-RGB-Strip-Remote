@@ -1,13 +1,13 @@
 # Node.js Raspbery Pi Server
 ###### A Node.js website that carries out Python scripts on a Raspberry Pi on specific GET requests
-###### Version 1.0
+###### Version 0.5 (UNFINISHED)
 ---
 
 ## About this Project
 
 This project is a test of running a Python script using Node.js to trigger it.
 
-The python files will turn on/off an LED connected to a Raspberry Pi on a breadboard (See the wiring diagram in 'Setting up the breadboard') when given the command to do so.
+The python scripts are used to manipulate the connected 12v RGB Strip (See the wiring diagram in 'Setting up the breadboard')
 
 
 ## How to use it
@@ -35,7 +35,6 @@ You can download and install the most recent version of `npm` using:
 
 `curl -L https://npmjs.org/install.sh | sudo sh`
 
-Assuming you have no errors, you should be able to check what version you have using:
 
 `npm -v`
 
@@ -53,9 +52,28 @@ To download this repository use:
 
 #### Setting up the breadboard
 
-The python script is set up to use `GPIO Pin 21` as its 'output' pin, however you can change this to whatever you want, and the cirtuit is going round and compleating in the `GPIO 3 Ground Pin`.
+The circuit to wire up the Raspberry Pi to a 12v RGB strip is simple. All you will need are the following components and to follow the diagram below:
 
-![Wiring Diagram](https://imgur.com/9fRgvvN.png "Wiring Diagram")
+* A Breadboard
+* 3 N Channel Mosfets ()
+* Some patch cables
+* A barrel jack converter
+
+<img src="./readme_resources/RPi_RGB_Strip_Blueprint_Image.png" width="80%">
+
+But if, like me, you want to be a bit more fancy, you might want to add individual LED's to your breadboard so that you can see what each colour is doing, and have a single indicator LED for what the entire strip should be doing.
+
+Having this extra circuit also means that you can still program more Python scripts for the LED's without having to have the RGB Strip or 12v power plugged in, giving you an indication like so:
+
+<img src="./readme_resources/Individual_LED_GIF.gif" width="50%">
+
+To do this, you will need a red, green, blue, and RGB LED. It is also advisable to use some resistors with these LED's, the ones I used are 330ohm resistors.
+
+<img src="./readme_resources/RPi_RGB_Strip_With_LED_Breakout_View_Blueprint_Image.png" width="80%">
+
+In case you have a hard time following the circuit diagrams, the `Fritzing` files are in `./readme_resources/`, or, see the image of the entire circuit below.
+
+<img src="./readme_resources/Full_Strip_GIF.gif" width="70%">
 
 #### Starting the Service and Connecting to it
 
@@ -79,9 +97,7 @@ Once it has fully started, unless there are any errors, it should output:
 
 In your navigate, connect to `YOURDEVICESIP:3000/`
 
-The page you should see should be the following. A simple page with a checkbox input that can be clicked to turn on/off the led.
 
-![Index Page](https://i.imgur.com/s737XPt.png "index page")
 
 As well as an output on the console saying:
 
@@ -89,13 +105,7 @@ As well as an output on the console saying:
 
 There are two other 'pages' that you can navigate to.
 
-`YOURDEVICESIP:3000/ledOn` and `YOURDEVICESIP:3000/ledOff` which, oviously, turn your LED on/off.
-
-When you press the switch to turn the LED on/off, the console of the Node service will also output what python script is running.
+`YOURDEVICESIP:3000/led-on` and `YOURDEVICESIP:3000/led-off` which, oviously, turn your LED on/off
 
 
-## To Do
 
-* Set a function to run on startup of the node service to either check the current status of the GPIO pins or straight turn the LED off, to sanity check what the status of the LED, and what state the switch, should be in. (former would be better)
-* Make a proper console (time/date and everything)
-* Make the on/off pages respond with a 200 (ok) or 503 (unavailable) html service error that can be parsed and used if needed by the HTML.

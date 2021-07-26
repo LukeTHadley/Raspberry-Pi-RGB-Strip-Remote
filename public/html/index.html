@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>Raspberry Pi LED Light Controller</title>
+    <title>Raspberry Pi RGB Strip Controller</title>
     <link rel="stylesheet" href="../stylesheets/styles.css">
 
 </head>
@@ -11,15 +11,14 @@
 <body>
 
     <script>
-        function clickEvent() {
+        function clickEvent(type) {
             var xhttp = new XMLHttpRequest();
-            var isChecked=document.getElementById("switch").checked;
-            if(isChecked){
-                xhttp.open("GET", "/ledOn", true);
-            }
-            else{
-                xhttp.open("GET", "/ledOff", true);
-            }
+
+
+            console.log(type);
+
+            xhttp.open("GET", type, true);
+
             xhttp.send();        
         }
     </script>
@@ -30,16 +29,48 @@
 
     </div>
 
-    <div class="block">
-    <div class="block-title">LED Control</div>
 
-    <div class="inner-block">
-        <div class="onoffswitch">
-            <input onclick="clickEvent()" type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch" tabindex="0">
-            <label class="onoffswitch-label" for="switch"></label>
-        </div>
-        <div>Turn on/off the LED</div>
+    <div class="block">
+        <div class="block-title">Fading Lights</div>
+        <button style="background-color: gray;" onclick="clickEvent('/fading')">X</button>
     </div>
+
+    <div class="block">
+        <div class="block-title">Red</div>
+        <button style="background-color: red;" onclick="clickEvent('/red')">X</button>
+    </div>
+
+    <div class="block">
+        <div class="block-title">Blue</div>
+        <button style="background-color: lightskyblue;" onclick="clickEvent('/blue')">X</button>
+    </div>
+
+    <div class="block">
+        <div class="block-title">Green</div>
+        <button style="background-color: greenyellow;" onclick="clickEvent('/green')">X</button>
+    </div>
+
+    <div class="block">
+        <div class="block-title">Yellow</div>
+        <button id="yellow" style="background-color: yellow;" onclick="clickEvent('/yellow')">X</button>
+    </div>
+
+    <div class="block">
+        <div class="block-title">Cyan</div>
+        <button id="cyan" style="background-color: cyan;" onclick="clickEvent('/cyan')">X</button>
+    </div>
+
+    <div class="block">
+        <div class="block-title">Magenta</div>
+        <button id="magenta" style="background-color: magenta;" onclick="clickEvent('/magenta')">X</button>
+    </div>
+
+    <div class="block">
+        <div class="block-title">All Off</div>
+        <button id="allOff" style="background-color: white;" onclick="clickEvent('/allOff')">X</button>
+    </div>
+    
+
 
     <div class="footer">
         <p class="footer-text-left">By Luke T. Hadley</p>
