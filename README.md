@@ -109,3 +109,9 @@ There are two other 'pages' that you can navigate to.
 
 
 
+##### Useful Links
+
+
+https://github.com/basementmaker/raspberrypi-configurator
+https://www.youtube.com/watch?v=NmyITFUi5cI
+https://www.youtube.com/watch?v=96uqxLQ_VFo
