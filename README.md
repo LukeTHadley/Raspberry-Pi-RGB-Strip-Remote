@@ -48,7 +48,7 @@ Install `git` using:
 
 To download this repository use:
 
-`git clone https://github.com/LukeTHadley/Remote-Pi-Control-Test`
+`git clone https://github.com/LukeTHadley/Raspberry-Pi-RGB-Strip-Remote.git`
 
 #### Setting up the breadboard
 
